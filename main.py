@@ -3,15 +3,14 @@ from requests.auth import HTTPBasicAuth
 import datetime
 import smtplib
 
-emails_list = ["111@gmail.com", "222@gmail.com"]
-
-my_email = "email"
-mail_password = "password"
-
 main_user = "user"
 main_pwd = "password"
 urlGet = "http://server:8091/do.admin?q=cs"
 
+smtp_server = "smtp_server"
+my_email = "email"
+mail_password = "password"
+emails_list = ["111@gmail.com", "222@gmail.com"]
 
 def locarus_request(url, user, pwd):
     response = requests.get(url, auth=HTTPBasicAuth(user, pwd))
@@ -50,7 +49,7 @@ if license_black_date_devices != []:
 
 
 if email_message != "":
-    with smtplib.SMTP("mail.tahovolga.ru") as connection:
+    with smtplib.SMTP(smtp_server) as connection:
         connection.starttls()
         connection.login(user=my_email, password=mail_password)
         for email in emails_list:
