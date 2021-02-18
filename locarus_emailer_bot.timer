@@ -1,0 +1,10 @@
+[Unit]
+Description=Locarus black date emailer
+Requires=locarus_emailer_bot.service
+
+[Timer]
+Unit=locarus_emailer_bot.service
+OnCalendar=*-*-* 06:15:30
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Locarus_Blackdate_Emailer
+Wants=locarus_emailer_bot.timer
+
+[Service]
+Type=oneshot
+ExecStart=/myvenv/locarus-emailer/bin/python /myenv/locarus-emailer/main.py
+
+[Install]
+WantedBy=multi-user.target
